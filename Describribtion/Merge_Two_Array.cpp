@@ -1,22 +1,29 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void Merge(int nums1[],int n,int nums2[],int m)
+vector<int> Merge(vector<int> & nums1,int n,vector<int> & nums2,int m)
 {
-    int i = m-1;
-    int j = n-1;
-    int k = m+n-1;
+  vector<int> temp(nums1.begin(),nums1.begin()+n);
+
+   temp.insert(temp.end(),nums2.begin(),nums2.begin()+m);
+
+   sort(temp.begin(),temp.end());
+
+   return temp;
 
 }
 
 int main()
 { 
-  int nums1[]={1,2,3,0,0,0};
-  int nums2[]={2,5,6};
+  vector<int> nums1={1,2,3,0,0,0};
+  vector<int> nums2={2,5,6};
 
-  Merge(nums1,3,nums2,3);
+  vector<int> result= Merge(nums1,3,nums2,3);
 
-
+  for(int num : result)
+  {
+    cout<<num<<" ";
+  }
 
     return 0;
 }
